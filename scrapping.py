@@ -34,16 +34,12 @@ faturamento = "Não informado"
 for e in soup.find_all('strong'):
     conteudo = e.get_text()
     separacao_string = conteudo.split()
-    print(e.get_text())
-    print(separacao_string)
     if not achou_investimento and separacao_string[0] == 'a':
         investimento = conteudo
         achou_investimento = True
-        print('Sou investimento')
     elif not achou_retorno and separacao_string[0] == 'de':
         retorno = conteudo
         achou_retorno = True
-        print('Sou retorno')
     elif not achou_faturamento and separacao_string[0][0] == 'R':
         faturamento = conteudo
         achou_faturamento = True
